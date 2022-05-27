@@ -25,6 +25,10 @@ if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
             "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif ()
 
+if(APPLE)
+  find_library(CoreFoundation CoreFoundation)
+endif()
+
 # Superbuild variables for sub projects
 include(ExternalProject)
 set_property(DIRECTORY PROPERTY EP_BASE ${CMAKE_BINARY_DIR}/subprojects)

@@ -59,7 +59,9 @@ add_executable(intercept
         source/collect/main.cc)
 target_link_libraries(intercept
         main_a
-        intercept_a)
+        intercept_a
+        "-framework Foundation"
+        resolv)
 
 install(TARGETS intercept
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
@@ -94,7 +96,9 @@ target_link_libraries(wrapper_a PUBLIC
         result_a
         sys_a
         rpc_a
-        spdlog::spdlog)
+        spdlog::spdlog
+        "-framework Foundation"
+        resolv)
 
 
 # Intercept report sender executable.
